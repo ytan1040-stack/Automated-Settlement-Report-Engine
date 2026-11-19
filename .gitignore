@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.deps/
+.tmp/
+
+# 测试与本地构建产物
+build/
+dist/
+*.spec
+legacy/
+*.log
+
+# 用户数据与生成文件（不要提交个人信息）
+规则配置.xlsx
+源数据.xlsx
+源数据模板.xlsx
+原版表格.docx
+_内部模板.docx
+_模板结构.json
+结算报表_*.docx
+数据检查报告.xlsx
+数据预览.xlsx
+差异报告.xlsx
+runs/
+backup/
+
+# Office 临时锁文件
+~$*.docx
+~$*.xlsx
+~$*.pptx

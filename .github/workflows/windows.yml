@@ -1,0 +1,36 @@
+name: Windows 测试
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    env:
+      PYTHONUTF8: "1"
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: 语法检查
+        run: |
+          python -m compileall -q settlement init_config.py make_templates.py make_report.py portable_entry.py build_exe.py
+
+      - name: 运行测试
+        run: |
+          python -m unittest discover -s tests -v

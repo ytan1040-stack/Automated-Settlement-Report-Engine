@@ -1,0 +1,24 @@
+# 统一换行符，避免 Windows / Linux 之间产生无意义的整文件 diff
+* text=auto
+
+*.py   text eol=lf
+*.md   text eol=lf
+*.txt  text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+
+# 批处理必须是 CRLF，且按原样保存，避免 Git 自动转换破坏 cmd 解析
+*.bat -text
+*.cmd -text
+
+# 二进制文件不做换行符转换
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.docx binary
+*.xlsx binary
+*.pptx binary
+*.zip  binary
+*.exe  binary
